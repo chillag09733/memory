@@ -1,13 +1,14 @@
 import React from 'react'
+import { useKattContext } from '../context/KattContext'
+import "./Lap.css";
 
-function Lap() {
+function Lap({ lap, index }) {
 
-    const {lapok} = useKattContext()
+    const {fordit} = useKattContext()
 
   return (
-    <div>
-
-
+    <div onClick={() => fordit(index)} className={`kartya ${lap.forditott ? 'emoji' : ''}`}>
+      {lap.forditott ? lap.tartalom : null}
     </div>
   )
 }

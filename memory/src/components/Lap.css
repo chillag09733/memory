@@ -1,0 +1,17 @@
+.kartya {
+  border: 2px solid #ccc;
+  height: 100px;
+  width: 100px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #ccc;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kartya.emoji {
+    background-color: white;
+    color: black;
+}
