@@ -1,7 +1,16 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 export const KattContext = createContext("");
 
 export const useKattContext = () => useContext(KattContext);
+
+function shuffleArray(array) {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
 
 export const KattProvider = ({ children }) => {
   const [lapok, setLapok] = useState([
@@ -20,6 +29,10 @@ export const KattProvider = ({ children }) => {
   ]);
 
   const [forditottLapok, setForditottLapok] = useState([]);
+
+  useEffect(() => {
+    setLapok(shuffleArray(lapok));
+  }, []);
 
   function fordit(index) {
     const ujLapok = [...lapok];
